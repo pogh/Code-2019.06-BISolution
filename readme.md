@@ -11,14 +11,14 @@ like version control and a much more professional rollout process.
 Here are the projects I created.  A simple database warehouse schema and an SSIS project
 for the ETL.
 
-![Solution](images/Solution.png)
+![Solution](./images/Solution.png)
 
 ## Fact Table Design
 
 Since I’m demostrating the technology there are only two fact tables, the more interesting
 is the FactAudit table.
 
-![FactAudit](images/FactAudit.PNG)
+![FactAudit](./images/FactAudit.PNG)
 
 ## ETL
 
@@ -27,7 +27,7 @@ is the FactAudit table.
 Loading the dimension tables is easy thanks to the SSIS wizard which does all the
 thinking for me.
 
-![SSISScd](images/SSISScd.png)
+![SSISScd](./images/SSISScd.png)
 
 ### Fact Table Load
 
@@ -35,17 +35,17 @@ Here I had to do some leg work.  I wrote a fancy pants queries to get the data d
 skipped the ”staging” part, and then matched the keys for all the look ups.  Then I loaded the fact table.  It’s
 cheating a bit to just truncate the table and load the whole thing every night.  
 
-![AgeSntJobLog](images/SSISDataLoad.png)
+![AgeSntJobLog](./images/SSISDataLoad.png)
 
 This is what the data flow looks like.
 
-![DF1](images/DF1.png)
+![DF1](./images/DF1.png)
 
 ### Fact Table Partial Load
 
 The second table I added was too big to TRUNCATE / Load every night, so I need to implment a partial load strategy.
 
-![DF2](images/DF2.png)
+![DF2](./images/DF2.png)
 
 The four steps are
 
@@ -56,18 +56,18 @@ column which I can use so I can load only what I need
 
 3. I can cheat again and just use a SQL statement for the updates.  Notice the WHERE clause, I don’t want to fill up my database
 log with useless updates.
-![DF2_UPDATE.png](images/DF2_UPDATE.png)
+![DF2_UPDATE.png](./images/DF2_UPDATE.png)
 
 4. The delete works the same way.  I can get a complete list of the primary keys from the source to use as my lookup list.  If
 I have values in my Data Warehouse table that aren’t in this lookup list, I need to delete them.
 
-![DF2_DELETE.png](images/DF2_DELETE.png)
+![DF2_DELETE.png](./images/DF2_DELETE.png)
 
 ### SQL Server Agent Job
 
 And the job runs every morning
 
-![AgentJobLog](images/AgentJobLog.png)
+![AgentJobLog](./images/AgentJobLog.png)
 
 ## Power BI
 
@@ -76,18 +76,18 @@ and you would never know that the database is hosted locally.  It was also a bre
 
 ### On-premise Data Gateway
 
-![OnPremisesDataGateway](images/OnPremisesDataGateway.png)
+![OnPremisesDataGateway](./images/OnPremisesDataGateway.png)
 
 ### Report
 
 This is the report I created.  The goal is to enable the end users to pull basic statistics based on the some filtering.
 
-![PBI1](images/PBI1.png)
+![PBI1](./images/PBI1.png)
 
 Since every presentation I’ve ever been too for Power BI has this world map, I’ve
 included it too.  I'm trying to inspire the client to show them what's possible.
 
-![PBI2](images/PBI2.png)
+![PBI2](./images/PBI2.png)
 
 ## Conclusion
 
