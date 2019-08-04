@@ -18,7 +18,7 @@ for the ETL.
 Since I’m demostrating the technology there are only two fact tables, the more interesting
 is the FactAudit table.
 
-![FactAudit](./images/FactAudit.PNG)
+![FactAudit](./images/FactAudit.png)
 
 ## ETL
 
